@@ -4,7 +4,7 @@ KERNEL-FLAGS=-DKERNEL_HDR
 GLIBC-DIR=/export/build/gnu/glibc-x32/release/x86_64-linux
 GLIBC-INC-FLAGS=-I$(GLIBC-DIR)/usr/include
 GLIBC-FLAGS=-D_GNU_SOURCE
-CFLAGS=-I$(GLIBC-DIR)/usr/include $(KERNEL-INC-FLAGS)
+CFLAGS=-mx32 -I$(GLIBC-DIR)/usr/include $(KERNEL-INC-FLAGS)
 
 all: kernel glibc
 	./kernel > kernel.out
@@ -18,4 +18,4 @@ kernel: types.c
 	$(CC) $(KERNEL-FLAGS) $(CFLAGS) -o $@ $<
 
 clean:
-	rm -f kernel glibc
+	rm -f kernel glibc *.out
