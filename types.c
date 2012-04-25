@@ -5,6 +5,7 @@
 #include <asm/statfs.h>
 #include <linux/ipc.h>
 #include <linux/mqueue.h>
+#include <linux/msg.h>
 #include <linux/resource.h>
 #include <linux/timex.h>
 #else
@@ -12,6 +13,7 @@
 #include <signal.h>
 #include <time.h>
 #include <sys/ipc.h>
+#include <sys/msg.h>
 #include <sys/resource.h>
 #include <sys/statfs.h>
 #include <sys/timex.h>
@@ -39,6 +41,7 @@ main ()
   value ("size of __ipc_pid_t", sizeof (__kernel_ipc_pid_t));
   value ("size of struct ipc_perm", sizeof (struct ipc64_perm));
   value ("size of mqd_t", sizeof (__kernel_mqd_t));
+  value ("size of struct msqid_ds", sizeof (struct msqid64_ds));
 #else
   value ("size of ino_t", sizeof (ino_t));
   value ("size of pid_t", sizeof (pid_t));
@@ -51,6 +54,7 @@ main ()
   value ("size of __ipc_pid_t", sizeof (__ipc_pid_t));
   value ("size of struct ipc_perm", sizeof (struct ipc_perm));
   value ("size of mqd_t", sizeof (mqd_t));
+  value ("size of struct msqid_ds", sizeof (struct msqid_ds));
 #endif
   value ("siginfo_t _sifields offset",
 	 __builtin_offsetof (siginfo_t, _sifields));
@@ -61,5 +65,7 @@ main ()
   value ("size of struct statfs", sizeof (struct statfs));
   value ("size of struct statfs64", sizeof (struct statfs64));
   value ("size of struct timex", sizeof (struct timex));
+  value ("size of struct msginfo", sizeof (struct msginfo));
+  value ("size of struct msgbuf", sizeof (struct msgbuf));
   return 0;
 }
