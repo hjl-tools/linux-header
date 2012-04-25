@@ -3,11 +3,13 @@
 #include <asm/siginfo.h>
 #include <linux/ipc.h>
 #include <linux/mqueue.h>
+#include <linux/resource.h>
 #else
 #include <mqueue.h>
 #include <signal.h>
 #include <time.h>
 #include <sys/ipc.h>
+#include <sys/resource.h>
 #endif
 
 void
@@ -35,5 +37,6 @@ main ()
   value ("siginfo_t si_utime offset",
 	 __builtin_offsetof (siginfo_t, si_utime));
   value ("size of struct mq_attr", sizeof (struct mq_attr));
+  value ("size of struct rlimit", sizeof (struct rlimit));
   return 0;
 }
