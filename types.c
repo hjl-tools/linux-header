@@ -5,6 +5,7 @@
 #include <linux/ipc.h>
 #include <linux/mqueue.h>
 #include <linux/resource.h>
+#include <linux/timex.h>
 #else
 #include <mqueue.h>
 #include <signal.h>
@@ -12,6 +13,7 @@
 #include <sys/ipc.h>
 #include <sys/resource.h>
 #include <sys/statfs.h>
+#include <sys/timex.h>
 #endif
 
 void
@@ -42,5 +44,6 @@ main ()
   value ("size of struct rlimit", sizeof (struct rlimit));
   value ("size of struct statfs", sizeof (struct statfs));
   value ("size of struct statfs64", sizeof (struct statfs64));
+  value ("size of struct timex", sizeof (struct timex));
   return 0;
 }
