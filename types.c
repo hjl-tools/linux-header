@@ -11,6 +11,7 @@
 #include <linux/resource.h>
 #include <linux/sem.h>
 #include <linux/shm.h>
+#include <linux/time.h>
 #include <linux/timex.h>
 #else
 #include <mqueue.h>
@@ -42,6 +43,7 @@ main ()
   value ("size of uid_t", sizeof (__kernel_uid32_t));
   value ("size of gid_t", sizeof (__kernel_gid32_t));
   value ("size of fsid_t", sizeof (__kernel_fsid_t));
+  value ("size of time_t", sizeof (__kernel_time_t));
   value ("size of clock_t", sizeof (__kernel_clock_t));
   value ("size of suseconds_t", sizeof (__kernel_suseconds_t));
   value ("size of daddr_t", sizeof (__kernel_daddr_t));
@@ -58,6 +60,7 @@ main ()
   value ("size of uid_t", sizeof (uid_t));
   value ("size of gid_t", sizeof (gid_t));
   value ("size of fsid_t", sizeof (fsid_t));
+  value ("size of time_t", sizeof (time_t));
   value ("size of clock_t", sizeof (clock_t));
   value ("size of suseconds_t", sizeof (suseconds_t));
   value ("size of daddr_t", sizeof (daddr_t));
@@ -69,6 +72,8 @@ main ()
   value ("size of struct shmid_ds", sizeof (struct shmid_ds));
   value ("size of struct shminfo", sizeof (struct shminfo));
 #endif
+  value ("size of struct timeval", sizeof (struct timeval));
+  value ("size of struct timespec", sizeof (struct timespec));
   value ("siginfo_t _sifields offset",
 	 __builtin_offsetof (siginfo_t, _sifields));
   value ("siginfo_t si_utime offset",
