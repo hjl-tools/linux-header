@@ -2,6 +2,7 @@
 #ifdef KERNEL_HDR
 #include <asm/posix_types.h>
 #include <asm/siginfo.h>
+#include <asm/stat.h>
 #include <asm/statfs.h>
 #include <linux/ipc.h>
 #include <linux/mqueue.h>
@@ -19,6 +20,7 @@
 #include <sys/resource.h>
 #include <sys/sem.h>
 #include <sys/shm.h>
+#include <sys/stat.h>
 #include <sys/statfs.h>
 #include <sys/timex.h>
 #include <sys/types.h>
@@ -72,6 +74,11 @@ main ()
 	 __builtin_offsetof (siginfo_t, si_utime));
   value ("size of struct mq_attr", sizeof (struct mq_attr));
   value ("size of struct rlimit", sizeof (struct rlimit));
+#ifdef __x86_64__
+  value ("size of struct stat", sizeof (struct stat));
+#else
+  value ("size of struct stat64", sizeof (struct stat64));
+#endif
   value ("size of struct statfs", sizeof (struct statfs));
   value ("size of struct statfs64", sizeof (struct statfs64));
   value ("size of struct timex", sizeof (struct timex));
