@@ -8,6 +8,7 @@
 #include <linux/msg.h>
 #include <linux/resource.h>
 #include <linux/sem.h>
+#include <linux/shm.h>
 #include <linux/timex.h>
 #else
 #include <mqueue.h>
@@ -17,6 +18,7 @@
 #include <sys/msg.h>
 #include <sys/resource.h>
 #include <sys/sem.h>
+#include <sys/shm.h>
 #include <sys/statfs.h>
 #include <sys/timex.h>
 #include <sys/types.h>
@@ -45,6 +47,8 @@ main ()
   value ("size of mqd_t", sizeof (__kernel_mqd_t));
   value ("size of struct msqid_ds", sizeof (struct msqid64_ds));
   value ("size of struct semid_ds", sizeof (struct semid64_ds));
+  value ("size of struct shmid_ds", sizeof (struct shmid64_ds));
+  value ("size of struct shminfo", sizeof (struct shminfo64));
 #else
   value ("size of ino_t", sizeof (ino_t));
   value ("size of pid_t", sizeof (pid_t));
@@ -59,6 +63,8 @@ main ()
   value ("size of mqd_t", sizeof (mqd_t));
   value ("size of struct msqid_ds", sizeof (struct msqid_ds));
   value ("size of struct semid_ds", sizeof (struct semid_ds));
+  value ("size of struct shmid_ds", sizeof (struct shmid_ds));
+  value ("size of struct shminfo", sizeof (struct shminfo));
 #endif
   value ("siginfo_t _sifields offset",
 	 __builtin_offsetof (siginfo_t, _sifields));
@@ -73,5 +79,6 @@ main ()
   value ("size of struct msgbuf", sizeof (struct msgbuf));
   value ("size of struct seminfo", sizeof (struct seminfo));
   value ("size of struct sembuf", sizeof (struct sembuf));
+  value ("size of struct shm_info", sizeof (struct shm_info));
   return 0;
 }
