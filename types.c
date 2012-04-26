@@ -1,6 +1,7 @@
 #include <stdio.h>
 #ifdef KERNEL_HDR
 #include <asm/posix_types.h>
+#include <asm/sigcontext.h>
 #include <asm/siginfo.h>
 #include <asm/stat.h>
 #include <asm/statfs.h>
@@ -87,5 +88,12 @@ main ()
   value ("size of struct seminfo", sizeof (struct seminfo));
   value ("size of struct sembuf", sizeof (struct sembuf));
   value ("size of struct shm_info", sizeof (struct shm_info));
+#ifndef __x86_64__
+  value ("size of struct _fpreg", sizeof (struct _fpreg));
+  value ("size of struct _fpxreg", sizeof (struct _fpxreg));
+  value ("size of struct _xmmreg", sizeof (struct _xmmreg));
+#endif
+  value ("size of struct _fpstate", sizeof (struct _fpstate));
+  value ("size of struct sigcontext", sizeof (struct sigcontext));
   return 0;
 }
