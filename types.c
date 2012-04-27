@@ -80,6 +80,7 @@ main ()
 	 __builtin_offsetof (siginfo_t, si_utime));
   value ("size of struct mq_attr", sizeof (struct mq_attr));
   value ("size of struct rlimit", sizeof (struct rlimit));
+  value ("size of struct rusage", sizeof (struct rusage));
 #ifdef __x86_64__
   value ("size of struct stat", sizeof (struct stat));
 #else
