@@ -1,4 +1,4 @@
-KERNEL-DIR=/export/gnu/import/git/linux-2.6
+KERNEL-DIR=/export/gnu/import/git/kernel.org/linux-stable
 KERNEL-INC-FLAGS=-I$(KERNEL-DIR)/usr/include
 KERNEL-FLAGS=-DKERNEL_HDR
 GLIBC-DIR=/export/build/gnu/glibc-x32/release/x86_64-linux
